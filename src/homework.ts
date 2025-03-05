@@ -1,6 +1,8 @@
-
+//--------------------------------------------------------------------------------------------------
 
 const TASK: number = 2
+
+//---------------------
 
 switch (TASK) {
 
@@ -30,7 +32,6 @@ switch (TASK) {
 
     case 2:
 
-
         function LogMethodCalls(target: any, propertyName: string, propertyDescriptor: PropertyDescriptor): PropertyDescriptor {
 
             const descriptor = propertyDescriptor.value
@@ -50,7 +51,6 @@ switch (TASK) {
         }
 
       
-
         class Calculator {
 
             @LogMethodCalls

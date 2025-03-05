@@ -1,4 +1,5 @@
 "use strict";
+//--------------------------------------------------------------------------------------------------
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 const TASK = 2;
+//---------------------
 switch (TASK) {
     case 1:
         function createPerson(name, age, isActive) {
