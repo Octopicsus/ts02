@@ -20,11 +20,12 @@ switch (TASK) {
         break;
     case 2:
         function LogMethodCalls(target, propertyName, propertyDescriptor) {
-            const method = propertyDescriptor.value;
-            propertyDescriptor.value = function (...args) {
-                const result = method.apply(this, args);
-                console.log(` \n"Calling "${propertyName}" with arguments: ${args.join(', ')}" \n`);
-                return result;
+            const descriptor = propertyDescriptor.value;
+            console.log(`log -->  ${descriptor}`);
+            propertyDescriptor.value = function (...inputArgs) {
+                const result = descriptor.apply(this, inputArgs);
+                console.log(` \n"Calling "${propertyName}" with arguments: ${inputArgs.join(', ')}" `);
+                return `\nResult: ${result}\n`;
             };
             return propertyDescriptor;
         }
@@ -42,10 +43,12 @@ switch (TASK) {
         __decorate([
             LogMethodCalls
         ], Calculator.prototype, "multiply", null);
+        console.log('\n---------------------------------------------------\n');
         const calculator = new Calculator();
         // "Calling "add" with arguments: 2, 3"
         console.log(calculator.add(2, 3)); // 5
         // "Calling "multiply" with arguments: 3, 4"
         console.log(calculator.multiply(3, 4)); // 12
+        console.log('\n---------------------------------------------------\n');
         break;
 }

@@ -30,22 +30,26 @@ switch (TASK) {
 
     case 2:
 
+
         function LogMethodCalls(target: any, propertyName: string, propertyDescriptor: PropertyDescriptor): PropertyDescriptor {
 
-            const method = propertyDescriptor.value
+            const descriptor = propertyDescriptor.value
 
-            propertyDescriptor.value = function (...args: any[]) {
+            console.log(`log -->  ${descriptor}`)
 
-                const result = method.apply(this, args)
+            propertyDescriptor.value = function (...inputArgs: any[]) {
 
-                console.log(` \n"Calling "${propertyName}" with arguments: ${args.join(', ')}" \n`)
+                const result = descriptor.apply(this, inputArgs)
 
-                return result
+                console.log(` \n"Calling "${propertyName}" with arguments: ${inputArgs.join(', ')}" `)
+
+                return `\nResult: ${result}\n`
             }
 
             return propertyDescriptor
         }
 
+      
 
         class Calculator {
 
@@ -59,7 +63,7 @@ switch (TASK) {
                 return a * b
             }
         }
-
+        console.log('\n---------------------------------------------------\n')
 
         const calculator = new Calculator()
 
@@ -68,6 +72,8 @@ switch (TASK) {
 
         // "Calling "multiply" with arguments: 3, 4"
         console.log(calculator.multiply(3, 4)) // 12
+
+        console.log('\n---------------------------------------------------\n')
 
         break
 }
