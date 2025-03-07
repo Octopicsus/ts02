@@ -106,7 +106,7 @@ namespace UserProfile {
             id: generateId(),
             name,
             email
-        };
+        }
     }
 }
 
