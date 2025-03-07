@@ -88,9 +88,13 @@ namespace UserProfile {
 
     function generateId(): string {
 
-        // const myNumber = 23345
+        // const myNumber: number = 23345
 
         // const random = myNumber.toString(2)
+        // const random = myNumber.toString(8)
+        // const random = myNumber.toString(10)
+        // const random = myNumber.toString(16)
+        //  const random = myNumber.toString(36)
 
         // console.log(random)
 
